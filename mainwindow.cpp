@@ -3,7 +3,6 @@
 #include "mapfield.h"
 #include "maplife.h"
 
-
 MapField **map = new MapField*[10000];
 maplife *life = new maplife();
 

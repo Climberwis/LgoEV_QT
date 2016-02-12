@@ -6,11 +6,13 @@
 #include <QPainter>
 
 class MapField : public QGraphicsItem{
+
 public:
     MapField(int x, int y);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~MapField();
+
 private:
     int 	value, moved;
     double	life;

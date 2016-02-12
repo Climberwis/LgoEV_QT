@@ -4,11 +4,13 @@
 #include <QGraphicsScene>
 
 class maplife{
+
 public:
     maplife();
     void zero_day();
     QString set_label();
-    int size;
+    int size; // jeszcze zobaczę czy potrzebne
+
 private:
     int n_xy, day_timer;
 };
