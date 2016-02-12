@@ -12,6 +12,7 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~MapField();
+    void random_field(int i);
 
 private:
     int 	value, moved;

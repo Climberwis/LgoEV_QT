@@ -21,6 +21,7 @@ public:
 private slots:
     void on_menu_quit_triggered();
     void on_menu_New_Game_triggered();
+    void on_menu_Random_triggered();
 
 private:
     Ui::MainWindow *ui;

@@ -17,8 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
     int size = 0;
     for(int i=0; i<100; i++){
         for(int j=0; j<100; j++){
-            int x=i*4;
-            int y=j*4;
+            int y=i*4;
+            int x=j*4;
             map[size]=new MapField(x,y);
             scene->addItem(map[size]);
             size++;
@@ -43,4 +43,11 @@ void MainWindow::on_menu_New_Game_triggered(){
     life->zero_day();
     QString day_label = life->set_label();
     ui->day_label->setText(day_label);
+}
+
+void MainWindow::on_menu_Random_triggered(){
+    for(int i=0; i<10000; i++){
+        map[i]->random_field(i);
+    }
+    scene->update(0,0,400,400);
 }
