@@ -54,6 +54,28 @@ void MapField::random_field(int i){
         life=50;
         value=5;
     }
+    moved=0;
+}
+
+void MapField::set_field(int i){
+    switch (i) {
+    case 0:
+        life=0;
+        break;
+    case 1:
+        life=100;
+        break;
+    case 3:
+        life=60;
+        break;
+    case 5:
+        life=50;
+        break;
+    default:
+        break;
+    }
+    value=i;
+    moved=0;
 }
 
 MapField::~MapField(){

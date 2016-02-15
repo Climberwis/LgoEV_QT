@@ -13,6 +13,8 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~MapField();
     void random_field(int i);
+    void set_field(int i);
+
 
 private:
     int 	value, moved;

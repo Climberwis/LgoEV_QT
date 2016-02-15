@@ -43,11 +43,23 @@ void MainWindow::on_menu_New_Game_triggered(){
     life->zero_day();
     QString day_label = life->set_label();
     ui->day_label->setText(day_label);
+    for(int i=0; i<10000; i++){
+        map[i]->set_field(0);
+    }
+    scene->update(0,0,400,400);
 }
 
 void MainWindow::on_menu_Random_triggered(){
     for(int i=0; i<10000; i++){
         map[i]->random_field(i);
+    }
+    scene->update(0,0,400,400);
+}
+
+void MainWindow::on_menu_Clear_Map_triggered()
+{
+    for(int i=0; i<10000; i++){
+        map[i]->set_field(0);
     }
     scene->update(0,0,400,400);
 }

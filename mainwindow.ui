@@ -295,7 +295,7 @@
        <item>
         <widget class="QLabel" name="day_label">
          <property name="text">
-          <string>Day no.</string>
+          <string>Day no. 0</string>
          </property>
         </widget>
        </item>

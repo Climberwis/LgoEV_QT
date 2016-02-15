@@ -23,6 +23,8 @@ private slots:
     void on_menu_New_Game_triggered();
     void on_menu_Random_triggered();
 
+    void on_menu_Clear_Map_triggered();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
