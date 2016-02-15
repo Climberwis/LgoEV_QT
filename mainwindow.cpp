@@ -33,6 +33,13 @@ MainWindow::~MainWindow(){
     delete life;
 }
 
+void MainWindow::display(){
+    ui->plant_number->display(life->quantity(1));
+    ui->herb_number->display(life->quantity(3));
+    ui->carn_number->display(life->quantity(5));
+    scene->update(0,0,400,400);
+}
+
 void MainWindow::on_menu_quit_triggered(){
     delete ui;
     delete map;
@@ -42,29 +49,28 @@ void MainWindow::on_menu_quit_triggered(){
 
 void MainWindow::on_menu_New_Game_triggered(){
     life->zero_day();
+    life->zero_field();
     QString day_label = life->set_label();
     ui->day_label->setText(day_label);
     for(int i=0; i<10000; i++){
         map[i]->set_field(0);
     }
-    scene->update(0,0,400,400);
+    display();
 }
 
 void MainWindow::on_menu_Random_triggered(){
     for(int i=0; i<10000; i++){
         map[i]->random_field(i, life);
     }
-    scene->update(0,0,400,400);
-    ui->plant_number->display(life->quantity(1));
-    ui->herb_number->display(life->quantity(3));
-    ui->carn_number->display(life->quantity(5));
+    display();
 }
 
 void MainWindow::on_menu_Clear_Map_triggered(){
     for(int i=0; i<10000; i++){
         map[i]->set_field(0);
     }
-    scene->update(0,0,400,400);
+    life->zero_field();
+    display();
 }
 
 void MainWindow::on_start_button_toggled(bool checked){/*to będzie więcej robiło :P*/
@@ -77,7 +83,6 @@ void MainWindow::on_start_button_toggled(bool checked){/*to będzie więcej robi
 }
 
 void MainWindow::on_stop_button_clicked(){
-    on_start_button_toggled(false);
     ui->start_button->setChecked(false);
     on_menu_Clear_Map_triggered();
 }

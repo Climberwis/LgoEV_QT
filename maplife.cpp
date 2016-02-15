@@ -52,3 +52,9 @@ int maplife::quantity(int value){
     }
     return 0;
 }
+
+void maplife::zero_field(){
+    plant_quant=0;
+    herb_quant=0;
+    carn_quant=0;
+}

@@ -11,6 +11,7 @@ public:
     QString set_label();
     void count_field(int value);
     int quantity(int value);
+    void zero_field();
     int size; // jeszcze zobaczę czy potrzebne
 
 private:
