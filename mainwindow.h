@@ -22,8 +22,9 @@ private slots:
     void on_menu_quit_triggered();
     void on_menu_New_Game_triggered();
     void on_menu_Random_triggered();
-
     void on_menu_Clear_Map_triggered();
+    void on_start_button_toggled(bool checked);
+    void on_stop_button_clicked();
 
 private:
     Ui::MainWindow *ui;

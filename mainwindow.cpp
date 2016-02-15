@@ -10,6 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
+    ui->start_button->setCheckable(true);
     scene = new QGraphicsScene(this);
     ui->mapView->setScene(scene);
     scene->setSceneRect(0,0,400,400);
@@ -56,10 +57,25 @@ void MainWindow::on_menu_Random_triggered(){
     scene->update(0,0,400,400);
 }
 
-void MainWindow::on_menu_Clear_Map_triggered()
-{
+void MainWindow::on_menu_Clear_Map_triggered(){
     for(int i=0; i<10000; i++){
         map[i]->set_field(0);
     }
     scene->update(0,0,400,400);
+}
+
+void MainWindow::on_start_button_toggled(bool checked){
+    QString start = "START";
+    if(checked){
+        ui->day_label->setText(start);
+    }
+    else{
+        ui->day_label->setText("PAUSE");
+    }
+}
+
+void MainWindow::on_stop_button_clicked(){
+    on_start_button_toggled(false);
+    ui->start_button->setChecked(false);
+    on_menu_Clear_Map_triggered();
 }
