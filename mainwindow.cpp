@@ -64,10 +64,9 @@ void MainWindow::on_menu_Clear_Map_triggered(){
     scene->update(0,0,400,400);
 }
 
-void MainWindow::on_start_button_toggled(bool checked){
-    QString start = "START";
+void MainWindow::on_start_button_toggled(bool checked){/*to będzie więcej robiło :P*/
     if(checked){
-        ui->day_label->setText(start);
+        ui->day_label->setText("START");
     }
     else{
         ui->day_label->setText("PAUSE");
