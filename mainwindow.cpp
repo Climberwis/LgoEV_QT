@@ -59,6 +59,7 @@ void MainWindow::on_menu_New_Game_triggered(){
 }
 
 void MainWindow::on_menu_Random_triggered(){
+    life->zero_field();
     for(int i=0; i<10000; i++){
         map[i]->random_field(i, life);
     }
@@ -75,10 +76,10 @@ void MainWindow::on_menu_Clear_Map_triggered(){
 
 void MainWindow::on_start_button_toggled(bool checked){/*to będzie więcej robiło :P*/
     if(checked){
-        ui->day_label->setText("START");
+        ui->start_button->setText("PAUSE");
     }
     else{
-        ui->day_label->setText("PAUSE");
+        ui->start_button->setText("START");
     }
 }
 
