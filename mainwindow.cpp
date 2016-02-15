@@ -52,9 +52,12 @@ void MainWindow::on_menu_New_Game_triggered(){
 
 void MainWindow::on_menu_Random_triggered(){
     for(int i=0; i<10000; i++){
-        map[i]->random_field(i);
+        map[i]->random_field(i, life);
     }
     scene->update(0,0,400,400);
+    ui->plant_number->display(life->quantity(1));
+    ui->herb_number->display(life->quantity(3));
+    ui->carn_number->display(life->quantity(5));
 }
 
 void MainWindow::on_menu_Clear_Map_triggered(){

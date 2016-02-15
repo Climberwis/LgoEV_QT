@@ -4,6 +4,9 @@ maplife::maplife(){
     n_xy=100;
     size=n_xy*n_xy;
     day_timer = 0;
+    plant_quant=0;
+    herb_quant=0;
+    carn_quant=0;
 }
 
 void maplife::zero_day(){
@@ -15,4 +18,37 @@ QString maplife::set_label(){
     QString day = QString::number(day_timer);
     label += day;
     return label;
+}
+
+void maplife::count_field(int value){
+    switch (value) {
+    case 0:
+        break;
+    case 1:
+        plant_quant++;
+        break;
+    case 3:
+        herb_quant++;
+        break;
+    case 5:
+        carn_quant++;
+        break;
+    }
+}
+
+int maplife::quantity(int value){
+    switch (value) {
+    case 0:
+        break;
+    case 1:
+        return plant_quant;
+        break;
+    case 3:
+        return herb_quant;
+        break;
+    case 5:
+        return carn_quant;
+        break;
+    }
+    return 0;
 }

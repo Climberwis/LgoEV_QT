@@ -97,13 +97,6 @@
             </spacer>
            </item>
            <item>
-            <widget class="QLabel" name="land_label">
-             <property name="text">
-              <string>Land</string>
-             </property>
-            </widget>
-           </item>
-           <item>
             <widget class="QLabel" name="plant_label">
              <property name="text">
               <string>Plant</string>
@@ -168,9 +161,6 @@
               </size>
              </property>
             </spacer>
-           </item>
-           <item>
-            <widget class="QLCDNumber" name="land_number"/>
            </item>
            <item>
             <widget class="QLCDNumber" name="plant_number"/>

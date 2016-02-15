@@ -4,6 +4,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QPainter>
+#include "maplife.h"
 
 class MapField : public QGraphicsItem{
 
@@ -12,9 +13,9 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~MapField();
-    void random_field(int i);
+    void random_field(int i, maplife *lif);
     void set_field(int i);
-
+    int f_value();
 
 private:
     int 	value, moved;

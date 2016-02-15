@@ -36,7 +36,7 @@ void MapField::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
         }
 }
 
-void MapField::random_field(int i){
+void MapField::random_field(int i, maplife *lif){
     int z = (qrand()%51)/10;
     if(z==0 || z == 2){
         life=0;
@@ -54,6 +54,7 @@ void MapField::random_field(int i){
         life=50;
         value=5;
     }
+    lif->count_field(value);
     moved=0;
 }
 
@@ -76,6 +77,10 @@ void MapField::set_field(int i){
     }
     value=i;
     moved=0;
+}
+
+int MapField::f_value(){
+    return value;
 }
 
 MapField::~MapField(){
