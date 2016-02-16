@@ -2,6 +2,7 @@
 #define MAPLIFE_H
 
 #include <QGraphicsScene>
+#include "header.h"
 
 class maplife{
 
@@ -10,7 +11,7 @@ public:
     void zero_day();
     QString set_label();
     void count_field(int value);
-    int quantity(int value);
+    int quantity(field_value value);
     void zero_field();
     int size; // jeszcze zobaczę czy potrzebne
 

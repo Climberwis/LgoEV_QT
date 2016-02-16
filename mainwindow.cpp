@@ -35,9 +35,9 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::display(){
-    ui->plant_number->display(life->quantity(1));
-    ui->herb_number->display(life->quantity(3));
-    ui->carn_number->display(life->quantity(5));
+    ui->plant_number->display(life->quantity(plant_v));
+    ui->herb_number->display(life->quantity(herb_v));
+    ui->carn_number->display(life->quantity(carn_v));
     scene->update(0,0,400,400);
 }
 

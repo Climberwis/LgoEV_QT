@@ -36,17 +36,17 @@ void maplife::count_field(int value){
     }
 }
 
-int maplife::quantity(int value){
+int maplife::quantity(field_value value){
     switch (value) {
-    case 0:
+    case land_v:
         break;
-    case 1:
+    case plant_v:
         return plant_quant;
         break;
-    case 3:
+    case herb_v:
         return herb_quant;
         break;
-    case 5:
+    case carn_v:
         return carn_quant;
         break;
     }
