@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "mapfield.h"
 #include "maplife.h"
+#include "header.h"
 
 MapField **map = new MapField*[10000];
 maplife *life = new maplife();
@@ -53,7 +54,7 @@ void MainWindow::on_menu_New_Game_triggered(){
     QString day_label = life->set_label();
     ui->day_label->setText(day_label);
     for(int i=0; i<10000; i++){
-        map[i]->set_field(0);
+        map[i]->set_field(land_v);
     }
     display();
 }
@@ -68,7 +69,7 @@ void MainWindow::on_menu_Random_triggered(){
 
 void MainWindow::on_menu_Clear_Map_triggered(){
     for(int i=0; i<10000; i++){
-        map[i]->set_field(0);
+        map[i]->set_field(land_v);
     }
     life->zero_field();
     display();
