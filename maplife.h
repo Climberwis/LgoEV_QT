@@ -10,7 +10,7 @@ public:
     maplife();
     void zero_day();
     QString set_label();
-    void count_field(int value);
+    void count_field(field_value value);
     int quantity(field_value value);
     void zero_field();
     int size; // jeszcze zobaczę czy potrzebne

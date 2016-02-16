@@ -20,17 +20,17 @@ QString maplife::set_label(){
     return label;
 }
 
-void maplife::count_field(int value){
+void maplife::count_field(field_value value){
     switch (value) {
-    case 0:
+    case land_v:
         break;
-    case 1:
+    case plant_v:
         plant_quant++;
         break;
-    case 3:
+    case herb_v:
         herb_quant++;
         break;
-    case 5:
+    case carn_v:
         carn_quant++;
         break;
     }
