@@ -1,6 +1,8 @@
 #include "mapfield.h"
 #include <iostream>
 
+enum {land_v, plant_v, herb_v = 3, carn_v = 5};
+
 MapField::MapField(int x, int y){
     land=QBrush(Qt::white);
     plant=QBrush(Qt::green);
@@ -58,18 +60,18 @@ void MapField::random_field(int i, maplife *lif){
     moved=0;
 }
 
-void MapField::set_field(int i){
+void MapField::set_field(int i){//takie cuś?
     switch (i) {
-    case 0:
+    case land_v:
         life=0;
         break;
-    case 1:
+    case plant_v:
         life=100;
         break;
-    case 3:
+    case herb_v:
         life=60;
         break;
-    case 5:
+    case carn_v:
         life=50;
         break;
     default:
