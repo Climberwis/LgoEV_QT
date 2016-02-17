@@ -1,3 +1,5 @@
+#include <QPointF>
+#include <iostream>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mapfield.h"
@@ -15,6 +17,7 @@ MainWindow::MainWindow(QWidget *parent) :
     scene = new QGraphicsScene(this);
     ui->mapView->setScene(scene);
     scene->setSceneRect(0,0,400,400);
+    ui->mapView->isInteractive();
     QPen mypen = QPen(Qt::red);
     int size = 0;
     for(int i=0; i<100; i++){
@@ -87,4 +90,18 @@ void MainWindow::on_start_button_toggled(bool checked){/*to będzie więcej robi
 void MainWindow::on_stop_button_clicked(){
     ui->start_button->setChecked(false);
     on_menu_Clear_Map_triggered();
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event){
+    if(event->button() == Qt::LeftButton){
+        QPoint remapped = ui->mapView->mapFromParent(event->pos());
+        if ( ui->mapView->rect().contains(remapped)){
+            QPointF mousePoint = ui->mapView->mapToScene(remapped);
+            map[10]->set_field(plant_v);
+            qDebug() << mousePoint;
+            display();
+        }
+
+    }
+
 }

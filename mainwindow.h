@@ -6,6 +6,7 @@
 #include <QtGui>
 #include <QGraphicsScene>
 #include <iostream>
+#include <QGraphicsSceneMouseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -17,6 +18,7 @@ class MainWindow : public QMainWindow{
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    virtual void mousePressEvent(QMouseEvent *event);
 
 private slots:
     void on_menu_quit_triggered();
