@@ -5,8 +5,8 @@
 #include <QtCore>
 #include <QtGui>
 #include <QGraphicsScene>
-#include <iostream>
-#include <QGraphicsSceneMouseEvent>
+#include <QPointF>
+#include "header.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +30,8 @@ private slots:
 
 private:
     void display();
+    int creat_number(int x, int y);
+    field_value creat_type();
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
 };

@@ -1,10 +1,8 @@
-#include <QPointF>
-#include <iostream>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "mapfield.h"
 #include "maplife.h"
-#include "header.h"
+#include <iostream>
 
 MapField **map = new MapField*[10000];
 maplife *life = new maplife();
@@ -18,7 +16,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mapView->setScene(scene);
     scene->setSceneRect(0,0,400,400);
     ui->mapView->isInteractive();
-    QPen mypen = QPen(Qt::red);
     int size = 0;
     for(int i=0; i<100; i++){
         for(int j=0; j<100; j++){
@@ -42,6 +39,31 @@ void MainWindow::display(){
     ui->herb_number->display(life->quantity(herb_v));
     ui->carn_number->display(life->quantity(carn_v));
     scene->update(0,0,400,400);
+}
+
+int MainWindow::creat_number(int x, int y){
+    int i=(y-1)/4;
+    int j=x/4;
+    i=100*i+j;
+return i;
+}
+
+field_value MainWindow::creat_type(){
+    switch (ui->spiece_choose->currentIndex()) {
+    case 0:
+        return land_v;
+        break;
+    case 1:
+        return plant_v;
+        break;
+    case 2:
+        return herb_v;
+        break;
+    case 3:
+        return carn_v;
+        break;
+    }
+    return land_v;
 }
 
 void MainWindow::on_menu_quit_triggered(){
@@ -95,13 +117,10 @@ void MainWindow::on_stop_button_clicked(){
 void MainWindow::mousePressEvent(QMouseEvent *event){
     if(event->button() == Qt::LeftButton){
         QPoint remapped = ui->mapView->mapFromParent(event->pos());
+        remapped.setY(remapped.y()-40);
         if ( ui->mapView->rect().contains(remapped)){
-            QPointF mousePoint = ui->mapView->mapToScene(remapped);
-            map[10]->set_field(plant_v);
-            qDebug() << mousePoint;
+            map[creat_number(remapped.x(),remapped.y())]->set_field(creat_type());
             display();
         }
-
     }
-
 }
