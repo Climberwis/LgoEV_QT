@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()),this, SLOT(play_game()));
     ui->start_button->setCheckable(true);
     scene = new QGraphicsScene(this);
     ui->mapView->setScene(scene);
@@ -38,6 +40,8 @@ void MainWindow::display(){
     ui->plant_number->display(life->quantity(plant_v));
     ui->herb_number->display(life->quantity(herb_v));
     ui->carn_number->display(life->quantity(carn_v));
+    QString day_label = life->set_label();
+    ui->day_label->setText(day_label);
     scene->update(0,0,400,400);
 }
 
@@ -45,7 +49,13 @@ int MainWindow::creat_number(int x, int y){
     int i=(y-1)/4;
     int j=x/4;
     i=100*i+j;
-return i;
+    return i;
+}
+
+void MainWindow::play_game(){
+    life->next_day();
+    display();
+    timer->start(750);
 }
 
 field_value MainWindow::creat_type(){
@@ -76,8 +86,6 @@ void MainWindow::on_menu_quit_triggered(){
 void MainWindow::on_menu_New_Game_triggered(){
     life->zero_day();
     life->zero_field();
-    QString day_label = life->set_label();
-    ui->day_label->setText(day_label);
     for(int i=0; i<10000; i++){
         map[i]->set_field(land_v);
     }
@@ -103,13 +111,16 @@ void MainWindow::on_menu_Clear_Map_triggered(){
 void MainWindow::on_start_button_toggled(bool checked){/*to będzie więcej robiło :P*/
     if(checked){
         ui->start_button->setText("PAUSE");
+        play_game();
     }
     else{
+        timer->stop();
         ui->start_button->setText("START");
     }
 }
 
 void MainWindow::on_stop_button_clicked(){
+    life->zero_day();
     ui->start_button->setChecked(false);
     on_menu_Clear_Map_triggered();
 }

@@ -9,6 +9,7 @@ class maplife{
 public:
     maplife();
     void zero_day();
+    void next_day();
     QString set_label();
     void count_field(field_value value);
     int quantity(field_value value);

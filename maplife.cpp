@@ -13,6 +13,11 @@ void maplife::zero_day(){
     day_timer = 0;
 }
 
+void maplife::next_day(){
+    day_timer++;
+
+}
+
 QString maplife::set_label(){
     QString label="Day no. ";
     QString day = QString::number(day_timer);
