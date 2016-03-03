@@ -19,9 +19,9 @@ public:
     int f_value();
 
 private:
-    field_value value;
-    int 	moved;
-    double	life;
+    field_value value = land_v;
+    int 	moved = 0, pos_x, pos_y;
+    double	life = 0;
     QBrush land, plant, herbivore, carnivore;
 };
 

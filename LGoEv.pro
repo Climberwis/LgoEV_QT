@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = LGoEv
 TEMPLATE = app
 
+CONFIG += c++1y
 
 SOURCES += main.cpp\
         mainwindow.cpp \

@@ -32,8 +32,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow(){
     delete ui;
-    delete map;
+    delete [] map;
     delete life;
+    delete timer;
+    delete scene;
 }
 
 void MainWindow::display(){
@@ -78,8 +80,10 @@ field_value MainWindow::creat_type(){
 
 void MainWindow::on_menu_quit_triggered(){
     delete ui;
-    delete map;
+    delete [] map;
     delete life;
+    delete timer;
+    delete scene;
     quick_exit(0);
 }
 

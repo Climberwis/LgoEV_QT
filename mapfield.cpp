@@ -1,15 +1,16 @@
 #include "mapfield.h"
 #include <iostream>
 
-MapField::MapField(int x, int y){
+MapField::MapField(int x, int y) : value(land_v), life(0), moved(0){
     land=QBrush(Qt::white);
     plant=QBrush(Qt::green);
     herbivore=QBrush(Qt::blue);
     carnivore=QBrush(Qt::red);
-        value=land_v;
-        life=0;
-        moved=0;
-        setPos(mapToParent(x,y));
+    pos_x = x; pos_y = y;
+    setPos(mapToParent(x,y));
+#ifdef DEBUG
+    cout << "MapField c-tor pos_x" << pos_x << " pos_y " << pos_y << endl;
+#endif // DEBUG
 }
 
 QRectF MapField::boundingRect() const{
@@ -84,4 +85,7 @@ int MapField::f_value(){
 }
 
 MapField::~MapField(){
+#ifdef DEBUG
+    cout << "MapField d-tor pos_x" << pos_x << " pos_y " << pos_y << endl;
+#endif // DEBUG
 }
