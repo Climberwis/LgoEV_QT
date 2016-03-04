@@ -39,6 +39,10 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::display(){
+    life->zero_field();
+    for(int i=0; i<10000; i++){
+       life->count_field(map[i]->f_value());
+    }
     ui->plant_number->display(life->quantity(plant_v));
     ui->herb_number->display(life->quantity(herb_v));
     ui->carn_number->display(life->quantity(carn_v));
@@ -54,7 +58,43 @@ int MainWindow::creat_number(int x, int y){
     return i;
 }
 
+void MainWindow::prepare_fields(){
+    for(int i=0; i<10000; i++){
+        map[i]->f_moved(no);
+        if (map[i]->f_value() == plant_v){
+            map[i]->decr_life(2);
+        } else if(map[i]->f_value() == herb_v){
+            map[i]->decr_life(1);
+        } else if(map[i]->f_value() == carn_v){
+            map[i]->decr_life(4);
+        }
+        if( map[i]->f_life() <= 0 ) map[i]->set_field(land_v);
+    }
+    add_plant();
+}
+
+void MainWindow::add_plant(){
+    if(!(life->l_day()%7)){
+        int plant = 100+life->quantity(plant_v);
+        if (life->quantity(plant_v) > 4000) return;
+        else{
+            while(plant>0){
+                int j = rand()%10000;
+                if(map[j]->f_value() == land_v){
+                    map[j]->set_field(plant_v);
+                    plant--;
+                } else plant--;
+            }
+        }
+    } else return;
+}
+
 void MainWindow::play_game(){
+    prepare_fields();
+    for(int i=0; i<10000; i++){
+       int j = losuj_pole(i);
+        //zbadaj pole i ustal
+    }
     life->next_day();
     display();
     timer->start(750);
@@ -99,7 +139,7 @@ void MainWindow::on_menu_New_Game_triggered(){
 void MainWindow::on_menu_Random_triggered(){
     life->zero_field();
     for(int i=0; i<10000; i++){
-        map[i]->random_field(i, life);
+        map[i]->random_field(i);
     }
     display();
 }

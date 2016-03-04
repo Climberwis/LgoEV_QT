@@ -11,12 +11,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = LGoEv
 TEMPLATE = app
 
-CONFIG += c++1y
+CONFIG += c++14
 
 SOURCES += main.cpp\
         mainwindow.cpp \
     mapfield.cpp \
-    maplife.cpp
+    maplife.cpp \
+    functions.cpp
 
 HEADERS  += mainwindow.h \
     mapfield.h \

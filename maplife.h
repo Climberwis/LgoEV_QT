@@ -14,7 +14,7 @@ public:
     void count_field(field_value value);
     int quantity(field_value value);
     void zero_field();
-    int size; // jeszcze zobaczę czy potrzebne
+    int l_day();
 
 private:
     int n_xy, day_timer, plant_quant, herb_quant, carn_quant;

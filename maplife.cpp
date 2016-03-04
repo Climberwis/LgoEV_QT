@@ -2,7 +2,6 @@
 
 maplife::maplife(){
     n_xy=100;
-    size=n_xy*n_xy;
     day_timer = 0;
     plant_quant=0;
     herb_quant=0;
@@ -62,4 +61,8 @@ void maplife::zero_field(){
     plant_quant=0;
     herb_quant=0;
     carn_quant=0;
+}
+
+int maplife::l_day(){
+    return day_timer;
 }

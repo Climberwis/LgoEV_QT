@@ -20,6 +20,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     virtual void mousePressEvent(QMouseEvent *event);
+    void prepare_fields();
+    void add_plant();
 
 private slots:
     void on_menu_quit_triggered();

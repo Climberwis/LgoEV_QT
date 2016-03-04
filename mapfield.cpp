@@ -1,7 +1,7 @@
 #include "mapfield.h"
 #include <iostream>
 
-MapField::MapField(int x, int y) : value(land_v), life(0), moved(0){
+MapField::MapField(int x, int y) : value(land_v), life(0), moved(no){
     land=QBrush(Qt::white);
     plant=QBrush(Qt::green);
     herbivore=QBrush(Qt::blue);
@@ -37,7 +37,7 @@ void MapField::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
         }
 }
 
-void MapField::random_field(int i, maplife *lif){
+void MapField::random_field(int i){
     int z = (qrand()%51)/10;
     if(z==0 || z == 2){
         life=0;
@@ -55,8 +55,7 @@ void MapField::random_field(int i, maplife *lif){
         life=50;
         value=carn_v;
     }
-    lif->count_field(value);
-    moved=0;
+    moved=no;
 }
 
 void MapField::set_field(field_value i){
@@ -77,11 +76,23 @@ void MapField::set_field(field_value i){
         break;
     }
     value=i;
-    moved=0;
+    moved=no;
 }
 
-int MapField::f_value(){
+field_value MapField::f_value(){
     return value;
+}
+
+int MapField::f_life(){
+    return life;
+}
+
+void MapField::f_moved(if_moved i){
+    moved = i;
+}
+
+void MapField::decr_life(int i){
+    life-=i;
 }
 
 MapField::~MapField(){

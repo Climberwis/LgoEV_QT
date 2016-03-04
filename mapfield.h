@@ -14,15 +14,19 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
     ~MapField();
-    void random_field(int i, maplife *lif);
+    void random_field(int i);
     void set_field(field_value i);
-    int f_value();
+    field_value f_value();
+    void f_moved(if_moved i);
+    void decr_life(int i);
+    int f_life();
 
 private:
     field_value value = land_v;
-    int 	moved = 0, pos_x, pos_y;
-    double	life = 0;
-    QBrush land, plant, herbivore, carnivore;
+    int         pos_x, pos_y;
+    if_moved    moved = no;
+    double      life = 0;
+    QBrush      land, plant, herbivore, carnivore;
 };
 
 #endif // MAPFIELD_H
