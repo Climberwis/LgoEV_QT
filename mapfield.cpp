@@ -1,7 +1,7 @@
 #include "mapfield.h"
 #include <iostream>
 
-MapField::MapField(int x, int y) : value(land_v), life(0), moved(no){
+MapField::MapField(int x, int y){
     land=QBrush(Qt::white);
     plant=QBrush(Qt::green);
     herbivore=QBrush(Qt::blue);
@@ -79,16 +79,24 @@ void MapField::set_field(field_value i){
     moved=no;
 }
 
-field_value MapField::f_value(){
+void MapField::set_life(int i){
+    life = i;
+}
+
+void MapField::set_moved(if_moved i){
+    moved = i;
+}
+
+field_value MapField::v_value(){
     return value;
 }
 
-int MapField::f_life(){
+int MapField::v_life(){
     return life;
 }
 
-void MapField::f_moved(if_moved i){
-    moved = i;
+if_moved MapField::v_moved(){
+    return moved;
 }
 
 void MapField::decr_life(int i){

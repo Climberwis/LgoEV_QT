@@ -10,14 +10,14 @@ public:
     maplife();
     void zero_day();
     void next_day();
+    int v_day();
     QString set_label();
-    void count_field(field_value value);
-    int quantity(field_value value);
+    void count_field(field_value value);\
     void zero_field();
-    int l_day();
+    int quantity(field_value value);
 
 private:
-    int n_xy, day_timer, plant_quant, herb_quant, carn_quant;
+    int day_timer = 0 , plant_quant = 0, herb_quant = 0, carn_quant = 0;
 };
 
 #endif // MAPLIFE_H

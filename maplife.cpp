@@ -1,11 +1,6 @@
 #include "maplife.h"
 
 maplife::maplife(){
-    n_xy=100;
-    day_timer = 0;
-    plant_quant=0;
-    herb_quant=0;
-    carn_quant=0;
 }
 
 void maplife::zero_day(){
@@ -14,7 +9,10 @@ void maplife::zero_day(){
 
 void maplife::next_day(){
     day_timer++;
+}
 
+int maplife::v_day(){
+    return day_timer;
 }
 
 QString maplife::set_label(){
@@ -40,6 +38,12 @@ void maplife::count_field(field_value value){
     }
 }
 
+void maplife::zero_field(){
+    plant_quant=0;
+    herb_quant=0;
+    carn_quant=0;
+}
+
 int maplife::quantity(field_value value){
     switch (value) {
     case land_v:
@@ -55,14 +59,4 @@ int maplife::quantity(field_value value){
         break;
     }
     return 0;
-}
-
-void maplife::zero_field(){
-    plant_quant=0;
-    herb_quant=0;
-    carn_quant=0;
-}
-
-int maplife::l_day(){
-    return day_timer;
 }

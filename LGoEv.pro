@@ -22,6 +22,7 @@ SOURCES += main.cpp\
 HEADERS  += mainwindow.h \
     mapfield.h \
     maplife.h \
-    header.h
+    header.h \
+    fun_header.h
 
 FORMS    += mainwindow.ui

@@ -16,10 +16,12 @@ public:
     ~MapField();
     void random_field(int i);
     void set_field(field_value i);
-    field_value f_value();
-    void f_moved(if_moved i);
+    void set_life(int i);
+    void set_moved(if_moved i);
+    field_value v_value();
+    int v_life();
+    if_moved v_moved();
     void decr_life(int i);
-    int f_life();
 
 private:
     field_value value = land_v;
