@@ -1,12 +1,8 @@
 #include "mapfield.h"
 #include <iostream>
 
-MapField::MapField(int x, int y){
-    land=QBrush(Qt::white);
-    plant=QBrush(Qt::green);
-    herbivore=QBrush(Qt::blue);
-    carnivore=QBrush(Qt::red);
-    pos_x = x; pos_y = y;
+MapField::MapField(int x, int y): pos_x(x), pos_y(y),
+    land(QBrush(Qt::white)), plant(QBrush(Qt::green)), herbivore(QBrush(Qt::blue)),carnivore(QBrush(Qt::red)){
     setPos(mapToParent(x,y));
 #ifdef DEBUG
     cout << "MapField c-tor pos_x" << pos_x << " pos_y " << pos_y << endl;
